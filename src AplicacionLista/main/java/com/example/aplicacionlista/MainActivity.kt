@@ -3,14 +3,12 @@ package com.example.aplicacionlista
 import android.content.Intent
 import android.os.Bundle
 import android.text.InputType
-import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
-import androidx.core.view.WindowCompat.enableEdgeToEdge
 import androidx.core.view.WindowInsetsCompat
 import com.example.aplicacionlista.datos.ListaEnemigos
 
@@ -30,6 +28,11 @@ class MainActivity : AppCompatActivity() {
         }
         findViewById<Button>(R.id.bIrEnemigo).setOnClickListener{
             dialogoElegir()
+        }
+
+        findViewById<Button>(R.id.bLista).setOnClickListener {
+            val intent = Intent(this, ListaActivity::class.java)
+            startActivity(intent)
         }
     }
 
