@@ -1,10 +1,12 @@
 package com.example.aplicacionlista
 
 import android.os.Bundle
+import android.widget.ImageView
 import android.widget.RatingBar
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
@@ -21,11 +23,20 @@ class EnemigoActivity : AppCompatActivity() {
         }
         val enemigo  = MainActivity.listaEnemigos.buscar(idEnemigo)
         findViewById<TextView>(R.id.textNombre).text = enemigo.nombre
-        findViewById<TextView>(R.id.textUbicacion).text = enemigo.ubicacion
-        findViewById<TextView>(R.id.textDescripcion).text = enemigo.descripcion
-        findViewById<TextView>(R.id.textAtaquePrin).text = enemigo.ataquePrincipal
-        findViewById<TextView>(R.id.textAtaqueSec).text = enemigo.ataqueSecundario
-        findViewById<TextView>(R.id.textDientes).text = enemigo.numeroDientes.toString()
-        findViewById<RatingBar>(R.id.dificultadEnemigo).rating = enemigo.dificultadEnemigo.toFloat()
+
+
+        val icono = findViewById<ImageView>(R.id.iconoGrande)
+        val draw= AppCompatResources.getDrawable(this,enemigo.ubicacion.imagen)
+        icono.setImageDrawable(draw)
+        val textoDescripcion= findViewById<TextView>(R.id.textDescripcion)
+            textoDescripcion.text = enemigo.descripcion
+        val textoAtaquePrin=findViewById<TextView>(R.id.textAtaquePrin)
+            textoAtaquePrin.text = enemigo.ataquePrincipal
+        val textoAtaqueSec= findViewById<TextView>(R.id.textAtaqueSec)
+            textoAtaqueSec.text = enemigo.ataqueSecundario
+        val numDientes=findViewById<TextView>(R.id.textDientes)
+            numDientes.text = enemigo.numeroDientes.toString()
+        val ratingBar=findViewById<RatingBar>(R.id.dificultadEnemigo)
+            ratingBar.rating = enemigo.dificultadEnemigo.toFloat()
     }
 }
