@@ -14,6 +14,9 @@ import com.example.aplicacionlista.datos.ListaEnemigos
 import com.example.aplicacionlista.datos.RepositorioEnemigos
 
 class MainActivity : AppCompatActivity() {
+    companion object{
+        const val NUMERO_PERS = "numero enemigo"
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -32,15 +35,37 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
         findViewById<Button>(R.id.bNuevo).setOnClickListener {
-            
+            val intent = Intent(this, EditarEnemigoActivity::class.java)
+            intent.putExtra("MODO", "NUEVO")
+            startActivity(intent)
+        }
+        findViewById<Button>(R.id.bModificar).setOnClickListener {
+            dialogoEditar()
          }
     }
 
-
+    fun dialogoEditar(){
+        val entrada = EditText(this)
+        entrada.inputType = InputType.TYPE_CLASS_NUMBER
+        entrada.hint=NUMERO_PERS
+        AlertDialog.Builder(this)
+            .setTitle("Edita un enemigo")
+            .setTitle("Introduce un numero para editar el enemigo")
+            .setView(entrada)
+            .setPositiveButton("Editar"){p0,p1->
+                val num=entrada.text.toString().toInt()
+                val intent = Intent(this,EditarEnemigoActivity::class.java)
+                intent.putExtra("MODO", "EDITAR")
+                intent.putExtra(NUMERO_PERS, num)
+                startActivity(intent)
+            }
+            .setNegativeButton("Cancelar", null)
+            .show()
+    }
     fun dialogoElegir(){
         val entrada = EditText(this)
         entrada.inputType= InputType.TYPE_CLASS_NUMBER
-        entrada.hint = "Número enemigo"
+        entrada.hint = NUMERO_PERS
         AlertDialog.Builder(this)
             .setTitle("Elige un enemigo")
             .setTitle("Introduce un numero para elegir el enemigo")
@@ -50,7 +75,7 @@ class MainActivity : AppCompatActivity() {
 //                val personajeSelecionado = listaEnemigos.buscar(num)
 //                Log.d("LISTA","")
                 val intent = Intent(this, EnemigoActivity::class.java)
-                intent.putExtra("numero enemigo", num)
+                intent.putExtra(NUMERO_PERS, num)
                 startActivity(intent)
             }
             .setNegativeButton("Cancelar", null)
