@@ -3,6 +3,7 @@ package com.example.aplicacionlista.modelo
 public data class DatosEnemigo(
     val nombre: String,
     val ubicacion: Ubicacion,
+    var descripcionBreve: String,
     var descripcion: String = "",
     val ataquePrincipal: String,
     val ataqueSecundario: String,

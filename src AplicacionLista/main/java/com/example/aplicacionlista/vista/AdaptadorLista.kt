@@ -38,16 +38,16 @@ class AdaptadorLista(val context: Context): RecyclerView.Adapter<AdaptadorLista.
         val enemigo = lista.buscar(position)
         holder.itemView.findViewById<TextView>(R.id.tarjeta_nombre)
             .text = enemigo.nombre
-        holder.itemView.findViewById<TextView>(R.id.tarjeta_descripcion)
-            .text=enemigo.descripcion
-        holder.itemView.findViewById<TextView>(R.id.tarjeta_ataquePrin)
+        holder.itemView.findViewById<TextView>(R.id.tarjeta_breve)
+            .text=enemigo.descripcionBreve
+        /*holder.itemView.findViewById<TextView>(R.id.tarjeta_ataquePrin)
             .text=enemigo.ataquePrincipal
         holder.itemView.findViewById<TextView>(R.id.tarjeta_ataqueSec)
             .text=enemigo.ataqueSecundario
         holder.itemView.findViewById<TextView>(R.id.tarjeta_numDientes)
             .text=enemigo.numeroDientes.toString()
         holder.itemView.findViewById<RatingBar>(R.id.tarjeta_dificultad)
-            .rating=enemigo.dificultadEnemigo
+            .rating=enemigo.dificultadEnemigo*/
         val draw = AppCompatResources.getDrawable(context,enemigo.ubicacion.imagen)
         holder.itemView.findViewById<ImageView>(R.id.icono_pequenno)
             .setImageDrawable(draw)

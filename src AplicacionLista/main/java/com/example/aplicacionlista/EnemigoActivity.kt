@@ -30,7 +30,6 @@ class EnemigoActivity : AppCompatActivity() {
         val enemigo  = lista.buscar(idEnemigo)
         findViewById<TextView>(R.id.textNombre).text = enemigo.nombre
 
-
         val icono = findViewById<ImageView>(R.id.iconoGrande)
         val draw= AppCompatResources.getDrawable(this,enemigo.ubicacion.imagen)
         icono.setImageDrawable(draw)

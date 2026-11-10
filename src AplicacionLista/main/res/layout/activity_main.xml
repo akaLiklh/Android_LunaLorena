@@ -8,26 +8,56 @@
     tools:context=".MainActivity">
 
     <Button
+        android:id="@+id/bModificar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Editar enemigo"
+        app:layout_constraintBottom_toTopOf="@+id/bEliminar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bNuevo" />
+
+    <Button
         android:id="@+id/bIrEnemigo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Ir a enemigo"
+        android:text="Buscar enemigo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.542"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bLista"
-        app:layout_constraintVertical_bias="0.136" />
+        app:layout_constraintTop_toBottomOf="@+id/bEliminar" />
 
     <Button
         android:id="@+id/bLista"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="86dp"
         android:text="Ver lista"
-        app:layout_constraintBottom_toTopOf="@+id/bIrEnemigo"
+        app:layout_constraintBottom_toTopOf="@+id/bNuevo"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.543"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/bNuevo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nuevo enemigo"
+        app:layout_constraintBottom_toTopOf="@+id/bModificar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bLista" />
+
+    <Button
+        android:id="@+id/bEliminar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Eliminar enemigo"
+        app:layout_constraintBottom_toTopOf="@+id/bIrEnemigo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bModificar" />
 </androidx.constraintlayout.widget.ConstraintLayout>

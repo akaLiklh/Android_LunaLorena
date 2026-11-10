@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.aplicacionlista.datos.ListaEnemigos
+import com.example.aplicacionlista.datos.RepositorioEnemigos
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,7 +31,11 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, ListaActivity::class.java)
             startActivity(intent)
         }
+        findViewById<Button>(R.id.bNuevo).setOnClickListener {
+            
+         }
     }
+
 
     fun dialogoElegir(){
         val entrada = EditText(this)
