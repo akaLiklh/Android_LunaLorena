@@ -9,11 +9,16 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.aplicacionlista.datos.RepositorioSingleton
 
 class EnemigoActivity : AppCompatActivity() {
+    companion object{
+        const val NUMERO_PERS = "numero enemigo"
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val idEnemigo = intent.extras?.getInt("numero enemigo") ?: 0
+        val idEnemigo = intent.extras?.getInt(NUMERO_PERS) ?: 0
         enableEdgeToEdge()
         setContentView(R.layout.activity_enemigo)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
@@ -21,7 +26,8 @@ class EnemigoActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        val enemigo  = MainActivity.listaEnemigos.buscar(idEnemigo)
+        val lista=RepositorioSingleton.instance.listaEnemigos
+        val enemigo  = lista.buscar(idEnemigo)
         findViewById<TextView>(R.id.textNombre).text = enemigo.nombre
 
 
@@ -37,6 +43,6 @@ class EnemigoActivity : AppCompatActivity() {
         val numDientes=findViewById<TextView>(R.id.textDientes)
             numDientes.text = enemigo.numeroDientes.toString()
         val ratingBar=findViewById<RatingBar>(R.id.dificultadEnemigo)
-            ratingBar.rating = enemigo.dificultadEnemigo.toFloat()
+            ratingBar.rating = enemigo.dificultadEnemigo
     }
 }

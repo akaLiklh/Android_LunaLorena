@@ -13,11 +13,7 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.aplicacionlista.datos.ListaEnemigos
 
 class MainActivity : AppCompatActivity() {
-    companion object {
-        val listaEnemigos = ListaEnemigos()
-    }
     override fun onCreate(savedInstanceState: Bundle?) {
-        listaEnemigos.poblar()
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
