@@ -46,11 +46,19 @@
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".enemigos.EnemigosActivity"
+            android:name=".enemigos.EnemigoActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".enemigos.EditarEnemigoActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".enemigos.ListaActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".InicioActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
     </application>

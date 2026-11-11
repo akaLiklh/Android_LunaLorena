@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="24dp"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/bIrEnemigo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ir a enemigo" />
+
+    <Button
+        android:id="@+id/bLista"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Lista de enemigos" />
+
+    <Button
+        android:id="@+id/bNuevo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nuevo enemigo" />
+
+    <Button
+        android:id="@+id/bModificar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Modificar enemigo" />
+
+    <Button
+        android:id="@+id/bEliminar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Eliminar enemigo" />
+</LinearLayout>
