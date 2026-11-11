@@ -10,32 +10,26 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/bIrEnemigo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Ir a enemigo" />
-
-    <Button
         android:id="@+id/bLista"
-        android:layout_width="match_parent"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:text="Lista de enemigos" />
 
     <Button
         android:id="@+id/bNuevo"
-        android:layout_width="match_parent"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:text="Nuevo enemigo" />
+        android:text="Añadir enemigo" />
 
     <Button
         android:id="@+id/bModificar"
-        android:layout_width="match_parent"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:text="Modificar enemigo" />
 
     <Button
         android:id="@+id/bEliminar"
-        android:layout_width="match_parent"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:text="Eliminar enemigo" />
 </LinearLayout>

@@ -28,9 +28,11 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        findViewById<Button>(R.id.bIrEnemigo).setOnClickListener{
+      /*  findViewById<Button>(R.id.bIrEnemigo).setOnClickListener{
             dialogoElegir()
         }
+        (
+       */
 
         findViewById<Button>(R.id.bLista).setOnClickListener {
             val intent = Intent(this, ListaActivity::class.java)
@@ -86,6 +88,7 @@ class MainActivity : AppCompatActivity() {
             .setNegativeButton("Cancelar", null)
             .show()
     }
+    /*
     fun dialogoElegir(){
         val entrada = EditText(this)
         entrada.inputType= InputType.TYPE_CLASS_NUMBER
@@ -105,4 +108,5 @@ class MainActivity : AppCompatActivity() {
             .setNegativeButton("Cancelar", null)
             .show()
     }
+    */
 }
