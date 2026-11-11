@@ -12,6 +12,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.aplicacionlista.datos.ListaEnemigos
 import com.example.aplicacionlista.datos.RepositorioEnemigos
+import com.example.aplicacionlista.datos.RepositorioSingleton
 
 class MainActivity : AppCompatActivity() {
     companion object{
@@ -42,8 +43,30 @@ class MainActivity : AppCompatActivity() {
         findViewById<Button>(R.id.bModificar).setOnClickListener {
             dialogoEditar()
          }
+        findViewById<Button>(R.id.bEliminar).setOnClickListener {
+            dialogoEliminar()
+        }
     }
 
+    fun dialogoEliminar(){
+        val entrada = EditText(this)
+        entrada.hint=NUMERO_PERS
+        AlertDialog.Builder(this)
+            .setTitle("Elimina un enemigo")
+            .setTitle("Introduce un numero para eliminar el enemigo")
+            .setView(entrada)
+            .setPositiveButton("Eliminar"){p0,p1 ->
+                val num=entrada.text.toString().toInt()
+                RepositorioSingleton.instance.listaEnemigos.borrar(num)
+                AlertDialog.Builder(this)
+                    .setTitle("Correcto")
+                    .setMessage("El enemigo se ha eliminado correctamente")
+                    .setPositiveButton("Aceptar", null)
+                    .show()
+            }
+            .setNegativeButton("Cancelar",null)
+            .show()
+    }
     fun dialogoEditar(){
         val entrada = EditText(this)
         entrada.inputType = InputType.TYPE_CLASS_NUMBER

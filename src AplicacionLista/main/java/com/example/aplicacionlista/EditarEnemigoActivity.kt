@@ -8,6 +8,7 @@ import android.widget.RatingBar
 import android.widget.Spinner
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -72,15 +73,13 @@ class EditarEnemigoActivity : AppCompatActivity() {
 
             if (modo == "NUEVO") {
 
-                RepositorioSingleton.instance.listaEnemigos
-                    .nuevoEnemigo(enemigo)
+                RepositorioSingleton.instance.listaEnemigos.nuevoEnemigo(enemigo)
 
             } else {
 
                 val idEnemigo = intent.getIntExtra(NUMERO_PERS, 0)
 
-                RepositorioSingleton.instance.listaEnemigos
-                    .actualizar(idEnemigo, enemigo)
+                RepositorioSingleton.instance.listaEnemigos.actualizar(idEnemigo, enemigo)
             }
 
             finish()

@@ -172,7 +172,6 @@ interface RepositorioEnemigos {
 
     }
     fun nuevoEnemigo(p: DatosEnemigo){
-
     }
     fun actualizar(id: Int, p: DatosEnemigo)
     fun borrar(id:Int)
