@@ -12,7 +12,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Android_LunaLorena">
 
-        <!-- Pantalla de inicio: ahora es la que arranca la app -->
         <activity
             android:name=".InicioActivity"
             android:exported="true"
@@ -24,7 +23,6 @@
             </intent-filter>
         </activity>
 
-        <!-- Menú de enemigos (ir a enemigo, nuevo, modificar, eliminar, lista) -->
         <activity
             android:name=".MainActivity"
             android:exported="false"
@@ -61,6 +59,12 @@
             android:name=".enemigos.EditarEnemigoActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".enemigos.MapaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".enemigos.UbicacionActivity"
+            android:exported="false" />
         <activity
             android:name=".enemigos.ListaActivity"
             android:exported="false"
