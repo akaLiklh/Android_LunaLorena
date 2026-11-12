@@ -50,7 +50,7 @@
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".juegos.LightsOutActivity"
+            android:name=".juegos.TresEnRaya"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
