@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="24dp"
+    tools:context=".InicioActivity">
+
+    <Button
+        android:id="@+id/bCalculadora"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="Calculadora" />
+
+    <Button
+        android:id="@+id/bConversor"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="Conversor" />
+
+    <Button
+        android:id="@+id/bJuegos"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="Juegos" />
+
+    <Button
+        android:id="@+id/bListaEnemigos"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:text="Enemigos" />
+</LinearLayout>

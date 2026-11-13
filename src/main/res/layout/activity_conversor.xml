@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".conversor.ConversorActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <TextView
+            android:id="@+id/txtConversor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="CONVERSOR" />
+
+        <TextView
+            android:id="@+id/txtCantidad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Introduce una cantidad (€):" />
+
+        <EditText
+            android:id="@+id/editTextNumberDecimal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="numberDecimal" />
+
+        <TextView
+            android:id="@+id/txtDivisas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Selecciona la divisa/divsas a la que convertir:" />
+
+        <CheckBox
+            android:id="@+id/checkBoxDolar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Dólar canadiense (C$)" />
+
+        <CheckBox
+            android:id="@+id/checkBoxLibra"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Libra esterlina (£)" />
+
+        <CheckBox
+            android:id="@+id/checkBoxYen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Yen japonés (¥)" />
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
