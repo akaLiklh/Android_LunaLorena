@@ -9,6 +9,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.android_lunalorena.calculadora.CalculadoraActivity
 import com.example.android_lunalorena.conversor.ConversorActivity
+import com.example.android_lunalorena.enemigos.ListaActivity
 import com.example.android_lunalorena.juegos.JuegosActivity
 
 class InicioActivity : AppCompatActivity() {
@@ -32,7 +33,7 @@ class InicioActivity : AppCompatActivity() {
             startActivity(Intent(this, JuegosActivity::class.java))
         }
         findViewById<Button>(R.id.bListaEnemigos).setOnClickListener {
-            startActivity(Intent(this, MainActivity::class.java))
+            startActivity(Intent(this, ListaActivity::class.java))
         }
     }
 }

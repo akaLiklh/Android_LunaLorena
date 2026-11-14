@@ -11,7 +11,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.android_lunalorena.enemigos.EditarEnemigoActivity
-import com.example.android_lunalorena.enemigos.EnemigoActivity
 import com.example.android_lunalorena.enemigos.ListaActivity
 import com.example.android_lunalorena.enemigos.modelo.RepositorioSingleton
 
