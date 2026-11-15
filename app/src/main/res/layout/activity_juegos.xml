@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
@@ -11,31 +10,50 @@
     tools:context=".juegos.JuegosActivity">
 
     <LinearLayout
-        android:layout_width="220dp"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical">
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/bPiedraPapelTijera"
             android:layout_width="220dp"
-            android:layout_height="wrap_content"
-            android:text="Piedra, papel y tijera" />
+            android:layout_height="70dp"
+            android:layout_marginBottom="16dp"
+            android:text="Piedra, papel y tijera"
+            android:textSize="18sp" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/bDados"
             android:layout_width="220dp"
-            android:layout_height="wrap_content"
-            android:text="Lanzar dados" />
+            android:layout_height="70dp"
+            android:layout_marginBottom="16dp"
+            android:text="Lanzar dados"
+            android:textSize="18sp" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/bTresEnRaya"
             android:layout_width="220dp"
-            android:layout_height="wrap_content"
-            android:text="Tres en raya" />
+            android:layout_height="70dp"
+            android:text="Tres en raya"
+            android:textSize="18sp" />
     </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
+        android:src="@drawable/cheshire" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="72dp"
+        android:text="¿Jugamos?"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+</LinearLayout>
