@@ -3,10 +3,12 @@ package com.example.android_lunalorena.juegos
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageButton
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.android_lunalorena.InicioActivity
 import com.example.android_lunalorena.R
 
 class JuegosActivity : AppCompatActivity() {
@@ -19,6 +21,10 @@ class JuegosActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        findViewById<ImageButton>(R.id.atrasButton2).setOnClickListener {
+            startActivity(Intent(this, InicioActivity::class.java))
+        }
+
         findViewById<Button>(R.id.bPiedraPapelTijera).setOnClickListener {
             startActivity(Intent(this, PiedraPapelTijeraActivity::class.java))
         }

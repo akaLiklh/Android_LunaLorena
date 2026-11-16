@@ -18,6 +18,17 @@
         android:paddingEnd="48dp"
         android:paddingBottom="80dp">
 
+        <ImageButton
+            android:id="@+id/atrasButton3"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="-15dp"
+            android:layout_marginEnd="140dp"
+            android:backgroundTint="#00FFFFFF"
+            android:contentDescription="atras"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/atras" />
+
         <TextView
             android:id="@+id/txtCantidadDados"
             android:layout_width="match_parent"

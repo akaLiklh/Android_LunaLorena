@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
     tools:context=".EnemigoActivity">
 
@@ -22,12 +22,13 @@
         android:id="@+id/iconoGrande"
         android:layout_width="match_parent"
         android:layout_height="135dp"
+        android:layout_marginTop="23dp"
         tools:srcCompat="@tools:sample/avatars" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"/>
+        android:orientation="horizontal" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -38,7 +39,7 @@
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="23dp"
             android:layout_marginTop="8dp"
             android:layout_weight="0"
             android:text="Descripción:"
@@ -64,7 +65,7 @@
             android:id="@+id/textView10"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="23dp"
             android:layout_marginTop="8dp"
             android:layout_weight="0"
             android:text="Ataque principal:"
@@ -90,7 +91,7 @@
             android:id="@+id/textView13"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="23dp"
             android:layout_marginTop="8dp"
             android:layout_weight="0"
             android:text="Ataque secundario:"
@@ -115,7 +116,7 @@
             android:id="@+id/textView15"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="23dp"
             android:layout_marginTop="8dp"
             android:layout_weight="0"
             android:text="Número dientes:"
@@ -132,11 +133,21 @@
     </LinearLayout>
 
     <RatingBar
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:layout_gravity="center_horizontal"
+        android:background="#000000"
+        android:backgroundTint="#00000000"
+        android:clickable="false"
+        android:contextClickable="false"
+        android:numStars="5"
+        android:rating="5" />
+
+    <RatingBar
         android:id="@+id/dificultadEnemigo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:clickable="false"
-        android:contextClickable="false" />
+        android:layout_gravity="center"
+        android:numStars="5" />
 
 </LinearLayout>

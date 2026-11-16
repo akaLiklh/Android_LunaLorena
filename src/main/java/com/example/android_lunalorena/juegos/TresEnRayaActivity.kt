@@ -1,12 +1,15 @@
 package com.example.android_lunalorena.juegos
 
+import android.content.Intent
 import androidx.activity.enableEdgeToEdge
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.example.android_lunalorena.InicioActivity
 import com.example.android_lunalorena.R
 
 
@@ -24,7 +27,9 @@ class TresEnRayaActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-
+        findViewById<ImageButton>(R.id.atrasButton6).setOnClickListener {
+            startActivity(Intent(this, InicioActivity::class.java))
+        }
         txtEstado = findViewById(R.id.txtEstado)
         botones = listOf(
             findViewById(R.id.b0), findViewById(R.id.b1), findViewById(R.id.b2),

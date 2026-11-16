@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
@@ -14,6 +15,15 @@
         android:paddingTop="58dp"
         android:paddingEnd="28dp"
         android:paddingBottom="58dp">
+
+        <ImageButton
+            android:id="@+id/atrasButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:backgroundTint="#00FFFFFF"
+            android:contentDescription="atras"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/atras" />
 
         <TextView
             android:id="@+id/textView"

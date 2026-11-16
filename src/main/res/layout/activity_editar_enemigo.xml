@@ -8,10 +8,19 @@
     android:orientation="vertical"
     tools:context=".EditarEnemigoActivity">
 
+    <ImageButton
+        android:id="@+id/atrasButton5"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:backgroundTint="#00FFFFFF"
+        android:contentDescription="atras"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/atras" />
+
     <EditText
         android:id="@+id/editarNombre"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:hint="Añadir nombre"
         android:textAlignment="center" />
 
@@ -35,6 +44,7 @@
             android:id="@+id/textView3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="23dp"
             android:layout_weight="1"
             android:text="Ubicación:" />
 
@@ -42,6 +52,7 @@
             android:id="@+id/spinner"
             android:layout_width="match_parent"
             android:layout_height="48dp"
+            android:layout_marginEnd="23dp"
             android:layout_weight="1" />
     </LinearLayout>
 
@@ -54,6 +65,7 @@
             android:id="@+id/textView6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="23dp"
             android:layout_weight="0"
             android:text="Descripción breve:" />
 
@@ -61,6 +73,7 @@
             android:id="@+id/editarDescripcionBreve"
             android:layout_width="wrap_content"
             android:layout_height="80dp"
+            android:layout_marginEnd="23dp"
             android:layout_weight="1"
             android:hint="Introduce una descripción breve" />
     </LinearLayout>
@@ -74,6 +87,7 @@
             android:id="@+id/textView8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="23dp"
             android:layout_weight="0"
             android:text="Descripción:" />
 
@@ -81,6 +95,7 @@
             android:id="@+id/editarDescripcion"
             android:layout_width="wrap_content"
             android:layout_height="80dp"
+            android:layout_marginEnd="23dp"
             android:layout_weight="1"
             android:hint="Introduce una descripción" />
     </LinearLayout>
@@ -94,6 +109,7 @@
             android:id="@+id/textView12"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="23dp"
             android:layout_weight="0"
             android:text="Ataque principal:" />
 
@@ -101,6 +117,7 @@
             android:id="@+id/editarAtaquePrin"
             android:layout_width="wrap_content"
             android:layout_height="80dp"
+            android:layout_marginEnd="23dp"
             android:layout_weight="1"
             android:hint="Introduce el ataque principal" />
     </LinearLayout>
@@ -114,6 +131,7 @@
             android:id="@+id/textView16"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="23dp"
             android:layout_weight="0"
             android:text="Ataque secundario:" />
 
@@ -121,6 +139,7 @@
             android:id="@+id/editarAtaqueSec"
             android:layout_width="wrap_content"
             android:layout_height="80dp"
+            android:layout_marginEnd="23dp"
             android:layout_weight="1"
             android:hint="Introduce el ataque secundario" />
     </LinearLayout>
@@ -134,6 +153,7 @@
             android:id="@+id/textView18"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="23dp"
             android:layout_weight="0"
             android:text="Numero dientes:" />
 
@@ -141,6 +161,7 @@
             android:id="@+id/editarDientes"
             android:layout_width="wrap_content"
             android:layout_height="48dp"
+            android:layout_marginEnd="23dp"
             android:layout_weight="1"
             android:hint="Introduce la cantidad de dientes" />
     </LinearLayout>
@@ -149,7 +170,7 @@
         android:id="@+id/editarDificultadEnemigo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="97dp"
+        android:layout_gravity="center"
         android:max="5"
         android:numStars="5" />
 
@@ -157,7 +178,9 @@
         android:id="@+id/bGuardar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="23dp"
         android:layout_marginTop="16dp"
+        android:layout_marginEnd="23dp"
         android:text="Guardar" />
 
 </LinearLayout>

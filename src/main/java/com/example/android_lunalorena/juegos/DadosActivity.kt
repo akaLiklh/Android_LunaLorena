@@ -1,5 +1,6 @@
 package com.example.android_lunalorena.juegos
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -8,9 +9,11 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.android_lunalorena.R
 import android.widget.ArrayAdapter
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.RadioGroup
 import android.widget.Spinner
 import android.widget.TextView
+import com.example.android_lunalorena.InicioActivity
 
 
 class DadosActivity : AppCompatActivity() {
@@ -27,6 +30,9 @@ class DadosActivity : AppCompatActivity() {
         val grupo = findViewById<RadioGroup>(R.id.RadioGroupTipoDado)
         val txtResultado = findViewById<TextView>(R.id.txtResultado)
 
+        findViewById<ImageButton>(R.id.atrasButton3).setOnClickListener {
+            startActivity(Intent(this, InicioActivity::class.java))
+        }
         findViewById<Button>(R.id.bLanzar).setOnClickListener {
             val cantidad = spinner.selectedItem.toString().toInt()
 

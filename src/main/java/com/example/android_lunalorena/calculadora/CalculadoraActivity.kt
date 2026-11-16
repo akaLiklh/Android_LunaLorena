@@ -1,14 +1,17 @@
 package com.example.android_lunalorena.calculadora
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.android_lunalorena.InicioActivity
 import com.example.android_lunalorena.R
 
 class CalculadoraActivity  : AppCompatActivity(), View.OnClickListener {
@@ -26,6 +29,10 @@ class CalculadoraActivity  : AppCompatActivity(), View.OnClickListener {
             insets
         }
         resultado = findViewById(R.id.textView)
+
+        findViewById<ImageButton>(R.id.atrasButton).setOnClickListener {
+            startActivity(Intent(this, InicioActivity::class.java))
+        }
 
         val listaBotones = listOf<Button>(
             findViewById(R.id.bClear),

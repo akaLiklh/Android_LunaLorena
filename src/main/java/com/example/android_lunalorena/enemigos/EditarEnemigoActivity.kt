@@ -1,9 +1,11 @@
 package com.example.android_lunalorena.enemigos
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageButton
 import android.widget.RatingBar
 import android.widget.Spinner
 import com.example.android_lunalorena.R
@@ -11,6 +13,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.android_lunalorena.InicioActivity
 import com.example.android_lunalorena.enemigos.datos.DatosEnemigo
 import com.example.android_lunalorena.enemigos.datos.Ubicacion
 import com.example.android_lunalorena.enemigos.modelo.RepositorioSingleton
@@ -42,6 +45,10 @@ class EditarEnemigoActivity : AppCompatActivity() {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
 
         spUbicacion.adapter = adapter
+
+        findViewById<ImageButton>(R.id.atrasButton5).setOnClickListener {
+            startActivity(Intent(this, InicioActivity::class.java))
+        }
 
         if (modo == "EDITAR") {
 
