@@ -15,8 +15,6 @@ import com.example.android_lunalorena.enemigos.datos.DatosEnemigo
 import com.example.android_lunalorena.enemigos.datos.Ubicacion
 import com.example.android_lunalorena.enemigos.modelo.RepositorioSingleton
 import com.example.android_lunalorena.enemigos.vista.AdaptadorLista.Companion.NUMERO_PERS
-import kotlin.text.toFloat
-import kotlin.toString
 
 
 class EditarEnemigoActivity : AppCompatActivity() {

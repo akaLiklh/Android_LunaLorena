@@ -8,42 +8,54 @@
     tools:context=".conversor.ConversorActivity">
 
     <LinearLayout
+        android:id="@+id/contenedor"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp">
+        android:paddingStart="28dp"
+        android:paddingTop="58dp"
+        android:paddingEnd="28dp"
+        android:paddingBottom="58dp">
 
         <TextView
             android:id="@+id/txtConversor"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="CONVERSOR" />
+            android:layout_marginBottom="24dp"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:text="CONVERSOR"
+            android:textSize="28sp" />
 
         <TextView
             android:id="@+id/txtCantidad"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Introduce una cantidad (€):" />
+            android:text="Introduce una cantidad:"
+            android:textSize="16sp" />
 
         <EditText
             android:id="@+id/editTextNumberDecimal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="numberDecimal" />
+            android:hint="0.00"
+            android:importantForAutofill="no"
+            android:inputType="numberDecimal"
+            android:minHeight="48dp" />
 
         <TextView
             android:id="@+id/txtDivisas"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Selecciona la divisa/divsas a la que convertir:" />
+            android:layout_marginTop="16dp"
+            android:text="Selecciona la divisa/divisas a la que convertir:" />
 
         <CheckBox
             android:id="@+id/checkBoxDolar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Dólar canadiense (C$)" />
+            android:text="Dólar canadiense (C)" />
 
         <CheckBox
             android:id="@+id/checkBoxLibra"
@@ -56,6 +68,42 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Yen japonés (¥)" />
+
+        <TextView
+            android:id="@+id/txtResultado"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:minLines="1"
+            android:textSize="22sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="?attr/colorPrimary" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnConvertir"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="4dp"
+                android:layout_weight="1"
+                android:text="Convertir" />
+
+            <Button
+                android:id="@+id/btnBorrar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_weight="1"
+                android:text="Borrar" />
+        </LinearLayout>
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

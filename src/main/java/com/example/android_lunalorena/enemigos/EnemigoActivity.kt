@@ -11,9 +11,11 @@ import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.android_lunalorena.enemigos.modelo.RepositorioSingleton
-import com.example.android_lunalorena.enemigos.vista.AdaptadorLista.Companion.NUMERO_PERS
 
 class EnemigoActivity : AppCompatActivity() {
+    companion object{
+        const val NUMERO_PERS = "numero enemigo"
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
