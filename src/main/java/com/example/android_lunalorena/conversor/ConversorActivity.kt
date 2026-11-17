@@ -2,6 +2,8 @@ package com.example.android_lunalorena.conversor
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
@@ -9,6 +11,7 @@ import android.widget.ImageButton
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.android_lunalorena.InicioActivity
@@ -24,6 +27,8 @@ class ConversorActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        val barra = findViewById<Toolbar>(R.id.toolbarConversorAtras)
+        setSupportActionBar(barra)
 
         val etCantidad = findViewById<EditText>(R.id.editTextNumberDecimal)
         val cbDolar = findViewById<CheckBox>(R.id.checkBoxDolar)
@@ -33,9 +38,6 @@ class ConversorActivity : AppCompatActivity() {
         val tvResultado = findViewById<TextView>(R.id.txtResultado)
         val btnBorrar = findViewById<Button>(R.id.btnBorrar)
 
-        findViewById<ImageButton>(R.id.atrasButton).setOnClickListener {
-            startActivity(Intent(this, InicioActivity::class.java))
-        }
 
         btnConvertir.setOnClickListener {
             val euros = etCantidad.text.toString().replace(',', '.').toDoubleOrNull()
@@ -63,6 +65,23 @@ class ConversorActivity : AppCompatActivity() {
             cbYen.isChecked = false
             tvResultado.text = ""
             etCantidad.requestFocus()
+        }
+    }
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_atras,menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        val idBoton = item.itemId
+        return when(idBoton){
+            R.id.boton_menu_atras ->{
+                val intent = Intent(this, InicioActivity::class.java)
+                startActivity(intent)
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
         }
     }
 }

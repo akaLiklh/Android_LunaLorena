@@ -2,11 +2,14 @@ package com.example.android_lunalorena.juegos
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.android_lunalorena.InicioActivity
@@ -25,9 +28,9 @@ class PiedraPapelTijeraActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        findViewById<ImageButton>(R.id.atrasButton4).setOnClickListener {
-            startActivity(Intent(this, InicioActivity::class.java))
-        }
+        val barra = findViewById<Toolbar>(R.id.toolbarPPTAtras)
+        setSupportActionBar(barra)
+
         findViewById<Button>(R.id.bPiedra).setOnClickListener{
             jugar("Piedra")
         }
@@ -59,5 +62,22 @@ class PiedraPapelTijeraActivity : AppCompatActivity() {
         txtDispositivo.text=dispositivo
         txtVictorias.text=numVictorias.toString()
         txtDerrotas.text=numDerrotas.toString()
+    }
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_atras,menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        val idBoton = item.itemId
+        return when(idBoton){
+            R.id.boton_menu_atras ->{
+                val intent = Intent(this, JuegosActivity::class.java)
+                startActivity(intent)
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 }

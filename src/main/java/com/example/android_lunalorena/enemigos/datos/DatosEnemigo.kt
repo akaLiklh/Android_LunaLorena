@@ -1,12 +1,12 @@
 package com.example.android_lunalorena.enemigos.datos
 
 public data class DatosEnemigo(
-    val nombre: String,
-    val ubicacion: Ubicacion,
+    var nombre: String,
+    var ubicacion: Ubicacion,
     var descripcionBreve: String,
     var descripcion: String = "",
-    val ataquePrincipal: String,
-    val ataqueSecundario: String,
+    var ataquePrincipal: String,
+    var ataqueSecundario: String,
     var numeroDientes: Int = 0,
     var dificultadEnemigo : Float = 0f
 )

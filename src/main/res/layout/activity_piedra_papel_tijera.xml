@@ -7,6 +7,14 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarPPTAtras"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -16,17 +24,6 @@
         android:paddingTop="80dp"
         android:paddingEnd="48dp"
         android:paddingBottom="80dp">
-
-        <ImageButton
-            android:id="@+id/atrasButton4"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_marginTop="-10dp"
-            android:layout_marginEnd="145dp"
-            android:backgroundTint="#00FFFFFF"
-            android:contentDescription="atras"
-            android:scaleType="fitCenter"
-            app:srcCompat="@drawable/atras" />
 
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
