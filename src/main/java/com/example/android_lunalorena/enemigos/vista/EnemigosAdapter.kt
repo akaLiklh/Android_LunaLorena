@@ -15,18 +15,24 @@ import com.example.android_lunalorena.R
 import com.example.android_lunalorena.enemigos.datos.Ubicacion
 import com.example.android_lunalorena.enemigos.modelo.RepositorioSingleton
 
-class AdaptadorLista(val context: Context, val ubicacion: Ubicacion? = null) :
+class AdaptadorLista(val ubicacion: Ubicacion? = null) :
     RecyclerView.Adapter<AdaptadorLista.CreadorItems>() {
 
     companion object {
         const val NUMERO_PERS = "numero enemigo"
+        private var instance: AdaptadorLista? = null
+        fun getInstance(): AdaptadorLista {
+            if (instance != null) {
+                return instance!!
+            } else {
+                instance = AdaptadorLista()
+                return instance!!
+            }
+        }
     }
 
     val lista = RepositorioSingleton.instance.listaEnemigos
-    val inflador = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-
     private var indices: List<Int> = calcularIndices()
-
     private fun calcularIndices(): List<Int> =
         (0 until lista.longitud()).filter { id ->
             ubicacion == null || lista.buscar(id).ubicacion == ubicacion
@@ -34,12 +40,13 @@ class AdaptadorLista(val context: Context, val ubicacion: Ubicacion? = null) :
 
     fun refrescar() {
         indices = calcularIndices()
-        notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CreadorItems {
+        val contexto = parent.context
+        val inflador = contexto.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         val vista = inflador.inflate(R.layout.tarjeta_enemigo, parent, false)
-        return CreadorItems(vista)
+        return CreadorItems(vista, parent.context)
     }
 
     override fun onBindViewHolder(holder: CreadorItems, position: Int) {
@@ -48,17 +55,22 @@ class AdaptadorLista(val context: Context, val ubicacion: Ubicacion? = null) :
 
         holder.itemView.findViewById<TextView>(R.id.tarjeta_nombre).text = enemigo.nombre
         holder.itemView.findViewById<TextView>(R.id.tarjeta_breve).text = enemigo.descripcionBreve
-        val draw = AppCompatResources.getDrawable(context, enemigo.ubicacion.imagen)
+        val draw = AppCompatResources.getDrawable(holder.contexto, enemigo.ubicacion.imagen)
         holder.itemView.findViewById<ImageView>(R.id.icono_pequenno).setImageDrawable(draw)
 
-        holder.itemView.findViewById<LinearLayout>(R.id.base_tarjeta).setOnClickListener {
-            val intent = Intent(context, EnemigoActivity::class.java)
-            intent.putExtra(NUMERO_PERS, id)
-            context.startActivity(intent)
-        }
     }
 
     override fun getItemCount(): Int = indices.size
 
-    class CreadorItems(itemView: View) : RecyclerView.ViewHolder(itemView)
+    class CreadorItems(itemView: View, val contexto: Context) : RecyclerView.ViewHolder(itemView) {
+        init {
+            val layout = itemView.findViewById<LinearLayout>(R.id.base_tarjeta)
+            layout.setOnClickListener {
+                val position = bindingAdapterPosition
+                val intent = Intent(contexto, EnemigoActivity::class.java)
+                intent.putExtra(EnemigoActivity.NUMERO_PERS, position)
+                contexto.startActivity(intent)
+            }
+        }
+    }
 }

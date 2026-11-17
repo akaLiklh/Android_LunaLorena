@@ -26,7 +26,6 @@ class ListaActivity : AppCompatActivity() {
     companion object {
         const val UBICACION = "ubicacion"
     }
-    private lateinit var adaptador: AdaptadorLista
     var idEnemigo: Int= 0;
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,8 +41,8 @@ class ListaActivity : AppCompatActivity() {
 
         val ubicacion = intent.getStringExtra(UBICACION)?.let { Ubicacion.valueOf(it) }
 
-        adaptador = AdaptadorLista(this, ubicacion)
         val recycler = findViewById<RecyclerView>(R.id.listaEnemigos)
+        val adaptador = AdaptadorLista.getInstance()//AdaptadorLista(this)
         recycler.layoutManager = LinearLayoutManager(this)
         recycler.adapter = adaptador
 
@@ -70,8 +69,9 @@ class ListaActivity : AppCompatActivity() {
         }
     }
 
-    override fun onResume() {
+    /*override fun onResume() {
+        findViewById<RecyclerView>(R.id.listaEnemigos).adapter?.notifyDataSetChanged()
         super.onResume()
-        adaptador.refrescar()
     }
+     */
 }

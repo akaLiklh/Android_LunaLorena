@@ -76,6 +76,10 @@ class EnemigoActivity : AppCompatActivity() {
                 startActivity(intent)
                 true
             }
+            R.id.boton_menu_eliminar ->{
+                RepositorioSingleton.instance.listaEnemigos.borrar(idEnemigo)
+                true
+            }
             else -> super.onOptionsItemSelected(item)
         }
     }

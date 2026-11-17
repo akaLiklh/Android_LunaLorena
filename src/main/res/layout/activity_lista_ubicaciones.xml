@@ -12,7 +12,7 @@
     tools:context=".enemigos.UbicacionesEnemigoActivity">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
+        android:id="@+id/toolbarEnemigosEditNuev"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/red"
@@ -27,44 +27,6 @@
             android:text="Lista de enemigos"
             android:textColor="@color/white"
             android:textSize="20sp" />
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="end"
-            android:orientation="horizontal">
-
-            <ImageButton
-                android:id="@+id/iconoMas"
-                android:layout_width="30dp"
-                android:layout_height="48dp"
-                android:layout_margin="8dp"
-                android:layout_weight="1"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:scaleType="fitCenter"
-                android:src="@drawable/masicono" />
-
-            <ImageButton
-                android:id="@+id/iconoEditar"
-                android:layout_width="30dp"
-                android:layout_height="48dp"
-                android:layout_margin="8dp"
-                android:layout_weight="1"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:scaleType="fitCenter"
-                android:src="@drawable/editaricono" />
-
-            <ImageButton
-                android:id="@+id/iconoEliminar"
-                android:layout_width="30dp"
-                android:layout_height="48dp"
-                android:layout_margin="8dp"
-                android:layout_weight="1"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:scaleType="fitCenter"
-                android:src="@drawable/eliminaricono" />
-
-        </LinearLayout>
 
     </androidx.appcompat.widget.Toolbar>
 

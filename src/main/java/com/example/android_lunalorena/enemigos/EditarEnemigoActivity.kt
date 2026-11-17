@@ -1,5 +1,6 @@
 package com.example.android_lunalorena.enemigos
 
+
 import android.os.Bundle
 
 import android.widget.Button
@@ -16,6 +17,7 @@ import androidx.core.view.WindowInsetsCompat
 
 import com.example.android_lunalorena.enemigos.datos.Ubicacion
 import com.example.android_lunalorena.enemigos.modelo.RepositorioSingleton
+import com.example.android_lunalorena.enemigos.vista.AdaptadorLista
 import com.example.android_lunalorena.enemigos.vista.AdaptadorLista.Companion.NUMERO_PERS
 
 
@@ -57,7 +59,8 @@ class EditarEnemigoActivity : AppCompatActivity() {
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             ubi.adapter = adapter*/
 
-            findViewById<Button>(R.id.bGuardar).setOnClickListener {
+            val bGuardar = findViewById<Button>(R.id.bGuardar)
+            bGuardar.setOnClickListener{
                 enemigo.nombre = nom.text.toString()
                 enemigo.ubicacion = ubi.selectedItem as Ubicacion
                 enemigo.descripcionBreve = desBrev.text.toString()
@@ -68,7 +71,14 @@ class EditarEnemigoActivity : AppCompatActivity() {
                 enemigo.dificultadEnemigo = difEne.rating.toString().toFloat()
 
                 RepositorioSingleton.instance.listaEnemigos.actualizar(idEnemigo, enemigo)
+                AdaptadorLista.getInstance().notifyItemChanged(idEnemigo)
+                finish()
             }
+        } else {
+
+
+
         }
+
     }
 }
