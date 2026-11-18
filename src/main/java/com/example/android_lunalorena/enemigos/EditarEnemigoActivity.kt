@@ -35,9 +35,6 @@ class EditarEnemigoActivity : AppCompatActivity() {
 
         findViewById<ImageButton>(R.id.atrasButton5).setOnClickListener { finish() }
 
-        val nombresUbicaciones = Ubicacion.values().map { it.nombre }
-        ubi.adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, nombresUbicaciones)
-
         if (idEnemigo >= 0 && idEnemigo < repo.longitud()) {
             val enemigo = repo.buscar(idEnemigo)
             nom.setText(enemigo.nombre)
