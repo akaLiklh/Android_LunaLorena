@@ -2,6 +2,7 @@ package com.example.android_lunalorena.juegos
 
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -31,6 +32,7 @@ class PiedraPapelTijeraActivity : AppCompatActivity() {
         findViewById<Button>(R.id.bTijera).setOnClickListener {
             jugar("Tijera")
         }
+        findViewById<ImageButton>(R.id.atrasButton4).setOnClickListener { finish() }
     }
 
     private fun jugar(jugador: String) {

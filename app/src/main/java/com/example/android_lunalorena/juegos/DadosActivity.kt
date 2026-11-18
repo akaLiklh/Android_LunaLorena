@@ -8,6 +8,7 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.android_lunalorena.R
 import android.widget.ArrayAdapter
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.RadioGroup
 import android.widget.Spinner
 import android.widget.TextView
@@ -47,5 +48,6 @@ class DadosActivity : AppCompatActivity() {
 
             txtResultado.text = texto
         }
+        findViewById<ImageButton>(R.id.atrasButton3).setOnClickListener { finish() }
     }
 }

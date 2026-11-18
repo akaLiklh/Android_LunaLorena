@@ -11,8 +11,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Android_LunaLorena">
-
-        <!-- Pantalla de inicio: ahora es la que arranca la app -->
         <activity
             android:name=".InicioActivity"
             android:exported="true"
@@ -23,12 +21,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <!-- Menú de enemigos (ir a enemigo, nuevo, modificar, eliminar, lista) -->
-        <activity
-            android:name=".MainActivity"
-            android:exported="false"
-            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".calculadora.CalculadoraActivity"
             android:exported="false"
@@ -50,7 +42,7 @@
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".juegos.TresEnRayaActivity"
+            android:name=".juegos.LightsOutActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
@@ -63,6 +55,18 @@
             android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".enemigos.ListaActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".enemigos.ListaUbicacionesActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".enemigos.UbicacionActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".ubicacion"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
     </application>

@@ -1,108 +1,152 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".juegos.DadosActivity">
+
+    <View
+        android:id="@+id/main"
+        android:layout_width="0dp"
+        android:layout_height="0dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center_horizontal"
         android:orientation="vertical"
-        android:paddingStart="48dp"
-        android:paddingTop="80dp"
-        android:paddingEnd="48dp"
-        android:paddingBottom="80dp">
+        android:paddingStart="22dp"
+        android:paddingTop="50dp"
+        android:paddingEnd="22dp"
+        android:paddingBottom="62dp">
 
-        <TextView
-            android:id="@+id/txtCantidadDados"
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Cantidad de dados a tirar:"
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textSize="20sp" />
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp">
 
-        <Spinner
-            android:id="@+id/spinnerCantidadDados"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:entries="@array/cantidad_dados"
-            android:textAlignment="center" />
+            <ImageButton
+                android:id="@+id/atrasButton3"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="start|center_vertical"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="atras"
+                android:scaleType="fitCenter"
+                android:src="@drawable/atras"
+                app:tint="?attr/colorOnPrimary" />
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:layout_marginBottom="16dp"
-            android:background="@color/red" />
-
-        <RadioGroup
-            android:id="@+id/RadioGroupTipoDado"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:orientation="horizontal">
-
-            <RadioButton
-                android:id="@+id/radioButtonD6"
-                android:layout_width="0dp"
+            <TextView
+                android:id="@+id/textTituloDados"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:checked="true"
-                android:text="D6" />
+                android:layout_gravity="end|center_vertical"
+                android:text="Dados"
+                android:textColor="?attr/colorOnPrimary"
+                android:textSize="20sp" />
+        </androidx.appcompat.widget.Toolbar>
 
-            <RadioButton
-                android:id="@+id/radioButtonD8"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="D8" />
-
-            <RadioButton
-                android:id="@+id/radioButtonD12"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="D12" />
-        </RadioGroup>
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/bLanzar"
-            android:layout_width="200dp"
-            android:layout_height="64dp"
-            android:text="Lanzar"
-            android:textSize="22sp" />
-
-        <com.google.android.material.card.MaterialCardView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginTop="16dp"
             android:layout_weight="1"
-            app:cardBackgroundColor="@color/white"
-            app:cardCornerRadius="16dp"
-            app:cardElevation="0dp"
-            app:strokeColor="@color/red"
-            app:strokeWidth="2dp">
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingStart="20dp"
+            android:paddingTop="16dp"
+            android:paddingEnd="20dp"
+            android:paddingBottom="8dp">
 
-            <ScrollView
+            <TextView
+                android:id="@+id/txtCantidadDados"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="16dp">
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Cantidad de dados a tirar:"
+                android:textAlignment="center"
+                android:textColor="?attr/colorOnSurface"
+                android:textSize="20sp" />
 
-                <TextView
-                    android:id="@+id/txtResultado"
-                    android:layout_width="match_parent"
+            <Spinner
+                android:id="@+id/spinnerCantidadDados"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:entries="@array/cantidad_dados" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginBottom="16dp"
+                android:background="?attr/colorPrimary" />
+
+            <RadioGroup
+                android:id="@+id/RadioGroupTipoDado"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/radioButtonD6"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:textAlignment="center"
-                    android:textColor="@color/black"
-                    android:textSize="20sp" />
-            </ScrollView>
-        </com.google.android.material.card.MaterialCardView>
+                    android:layout_weight="1"
+                    android:checked="true"
+                    android:text="D6" />
+
+                <RadioButton
+                    android:id="@+id/radioButtonD8"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="D8" />
+
+                <RadioButton
+                    android:id="@+id/radioButtonD12"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="D12" />
+            </RadioGroup>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/bLanzar"
+                android:layout_width="200dp"
+                android:layout_height="64dp"
+                android:layout_gravity="center_horizontal"
+                android:text="Lanzar"
+                android:textSize="22sp" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="16dp"
+                android:layout_weight="1"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp"
+                app:strokeColor="?attr/colorPrimary"
+                app:strokeWidth="2dp">
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:id="@+id/txtResultado"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:textAlignment="center"
+                        android:textColor="?attr/colorOnSurface"
+                        android:textSize="20sp" />
+                </ScrollView>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
     </LinearLayout>
-</LinearLayout>
+
+</FrameLayout>

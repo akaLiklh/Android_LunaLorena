@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -48,7 +49,7 @@ class CalculadoraActivity  : AppCompatActivity(), View.OnClickListener {
         )
 
         for (i in listaBotones) i.setOnClickListener (this)
-
+        findViewById<ImageButton>(R.id.atrasButton4).setOnClickListener { finish() }
     }
     override fun onClick(p0: View?){
         when (p0?.id){
@@ -105,6 +106,6 @@ class CalculadoraActivity  : AppCompatActivity(), View.OnClickListener {
             }
         }
         Log.d("PANTALLA", calc.num2)
-        resultado.text = calc.num2
+        resultado.text = if (calc.num2.isEmpty()) calc.num1 else calc.num2
     }
 }

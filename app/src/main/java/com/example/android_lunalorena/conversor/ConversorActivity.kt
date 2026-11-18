@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
+import android.widget.ImageButton
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -21,6 +22,7 @@ class ConversorActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        findViewById<ImageButton>(R.id.atrasButton4).setOnClickListener { finish() }
 
         val etCantidad = findViewById<EditText>(R.id.editTextNumberDecimal)
         val cbDolar = findViewById<CheckBox>(R.id.checkBoxDolar)
@@ -35,16 +37,18 @@ class ConversorActivity : AppCompatActivity() {
 
             if (euros == null) {
                 tvResultado.text = "Porfaplis, introduce una cantidad"
+            } else if (!cbDolar.isChecked && !cbLibra.isChecked && !cbYen.isChecked) {
+                tvResultado.text = "Porfaplis, selecciona una divisa"
             } else {
                 var resultado = ""
                 if (cbDolar.isChecked) {
-                    resultado += "${euros * 1.43} C$\n"
+                    resultado += "%.2f C$\n".format(euros * 1.58)
                 }
                 if (cbLibra.isChecked) {
-                    resultado += "${euros * 1.20} £\n"
+                    resultado += "%.2f £\n".format(euros * 0.84)
                 }
                 if (cbYen.isChecked) {
-                    resultado += "${euros * 176.0} ¥\n"
+                    resultado += "%.2f ¥\n".format(euros * 176.0)
                 }
                 tvResultado.text = resultado
             }
