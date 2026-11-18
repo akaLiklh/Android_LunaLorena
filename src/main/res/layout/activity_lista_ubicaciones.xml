@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
@@ -9,25 +10,50 @@
     android:paddingTop="50dp"
     android:paddingEnd="22dp"
     android:paddingBottom="62dp"
-    tools:context=".enemigos.UbicacionesEnemigoActivity">
+    tools:context=".enemigos.ListaUbicacionesActivity">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbarEnemigosEditNuev"
+        android:id="@+id/toolbarEnemigo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/red"
+        android:background="?attr/colorPrimary"
         android:paddingStart="12dp"
         android:paddingEnd="4dp">
 
-        <TextView
-            android:id="@+id/textTituloLista"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:text="Lista de enemigos"
-            android:textColor="@color/white"
-            android:textSize="20sp" />
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
 
+            <ImageButton
+                android:id="@+id/atrasButton5"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="atras"
+                android:scaleType="fitCenter"
+                android:src="@drawable/atras"
+                app:tint="?attr/colorOnPrimary" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/textTituloLista"
+                android:layout_width="wrap_content"
+                android:layout_height="37dp"
+                android:layout_marginStart="10dp"
+                android:layout_weight="1"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:maxLines="1"
+                android:minHeight="48dp"
+                android:text="Lista de enemigos"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                app:backgroundTint="@color/white"
+                app:cornerRadius="12dp" />
+
+        </LinearLayout>
     </androidx.appcompat.widget.Toolbar>
 
     <LinearLayout
@@ -43,23 +69,35 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="8dp"
             android:layout_weight="1"
             android:orientation="vertical">
 
-            <ImageButton
-                android:id="@+id/imgUbicacion1"
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:background="?attr/selectableItemBackground"
-                android:scaleType="centerCrop"
-                android:src="@drawable/vallelagrimas" />
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp"
+                app:strokeColor="?attr/colorPrimary"
+                app:strokeWidth="2dp">
+
+                <ImageButton
+                    android:id="@+id/imgUbicacion1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="?attr/selectableItemBackground"
+                    android:contentDescription="Valle de Lágrimas"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/vallelagrimas" />
+            </com.google.android.material.card.MaterialCardView>
 
             <TextView
                 android:id="@+id/tituloUbicacion1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
                 android:gravity="center"
                 android:paddingTop="4dp"
                 android:text="Valle de Lágrimas"
@@ -69,49 +107,73 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="8dp"
             android:layout_weight="1"
             android:orientation="vertical">
 
-            <ImageButton
-                android:id="@+id/imgUbicacion2"
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:background="?attr/selectableItemBackground"
-                android:scaleType="centerCrop"
-                android:src="@drawable/treninfernal" />
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp"
+                app:strokeColor="?attr/colorPrimary"
+                app:strokeWidth="2dp">
+
+                <ImageButton
+                    android:id="@+id/imgUbicacion2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="?attr/selectableItemBackground"
+                    android:contentDescription="Dominio del Sombrerero"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/dominiosombrerero" />
+            </com.google.android.material.card.MaterialCardView>
 
             <TextView
                 android:id="@+id/tituloUbicacion2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
                 android:gravity="center"
                 android:paddingTop="4dp"
-                android:text="Tren Infernal"
+                android:text="Dominio del Sombrerero"
                 android:textSize="18sp" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="8dp"
             android:layout_weight="1"
             android:orientation="vertical">
 
-            <ImageButton
-                android:id="@+id/imgUbicacion3"
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:background="?attr/selectableItemBackground"
-                android:scaleType="centerCrop"
-                android:src="@drawable/queensland" />
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp"
+                app:strokeColor="?attr/colorPrimary"
+                app:strokeWidth="2dp">
+
+                <ImageButton
+                    android:id="@+id/imgUbicacion3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="?attr/selectableItemBackground"
+                    android:contentDescription="Queensland"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/queensland" />
+            </com.google.android.material.card.MaterialCardView>
 
             <TextView
                 android:id="@+id/tituloUbicacion3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
                 android:gravity="center"
                 android:paddingTop="4dp"
                 android:text="Queensland"
@@ -121,23 +183,35 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="8dp"
             android:layout_weight="1"
             android:orientation="vertical">
 
-            <ImageButton
-                android:id="@+id/imgUbicacion4"
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:background="?attr/selectableItemBackground"
-                android:scaleType="centerCrop"
-                android:src="@drawable/casamunecas" />
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp"
+                app:strokeColor="?attr/colorPrimary"
+                app:strokeWidth="2dp">
+
+                <ImageButton
+                    android:id="@+id/imgUbicacion4"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="?attr/selectableItemBackground"
+                    android:contentDescription="Casa de Muñecas"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/casamunecas" />
+            </com.google.android.material.card.MaterialCardView>
 
             <TextView
                 android:id="@+id/tituloUbicacion4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
                 android:gravity="center"
                 android:paddingTop="4dp"
                 android:text="Casa de Muñecas"
@@ -150,22 +224,34 @@
             android:layout_weight="1"
             android:orientation="vertical">
 
-            <ImageButton
-                android:id="@+id/imgUbicacion5"
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:background="?attr/selectableItemBackground"
-                android:scaleType="centerCrop"
-                android:src="@drawable/dominiosombrerero" />
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp"
+                app:strokeColor="?attr/colorPrimary"
+                app:strokeWidth="2dp">
+
+                <ImageButton
+                    android:id="@+id/imgUbicacion5"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="?attr/selectableItemBackground"
+                    android:contentDescription="Tren Infernal"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/treninfernal" />
+            </com.google.android.material.card.MaterialCardView>
 
             <TextView
                 android:id="@+id/tituloUbicacion5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
                 android:gravity="center"
                 android:paddingTop="4dp"
-                android:text="Dominio del Sombrerero"
+                android:text="Tren Infernal"
                 android:textSize="18sp" />
         </LinearLayout>
 

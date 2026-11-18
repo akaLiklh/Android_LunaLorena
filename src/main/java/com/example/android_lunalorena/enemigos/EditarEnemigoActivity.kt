@@ -1,84 +1,95 @@
 package com.example.android_lunalorena.enemigos
 
-
 import android.os.Bundle
-
+import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageButton
 import android.widget.RatingBar
 import android.widget.Spinner
-
-import com.example.android_lunalorena.R
-
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-
+import com.example.android_lunalorena.R
+import com.example.android_lunalorena.enemigos.datos.DatosEnemigo
 import com.example.android_lunalorena.enemigos.datos.Ubicacion
 import com.example.android_lunalorena.enemigos.modelo.RepositorioSingleton
-import com.example.android_lunalorena.enemigos.vista.AdaptadorLista
-import com.example.android_lunalorena.enemigos.vista.AdaptadorLista.Companion.NUMERO_PERS
-
 
 class EditarEnemigoActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val idEnemigo = intent.extras?.getInt(NUMERO_PERS) ?: 0
         enableEdgeToEdge()
         setContentView(R.layout.activity_editar_enemigo)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
+
+        val repo = RepositorioSingleton.instance.listaEnemigos
+        val idEnemigo = intent.getIntExtra(EnemigoActivity.NUMERO_PERS, -1)
+
+        val nom = findViewById<EditText>(R.id.editarNombre)
+        val ubi = findViewById<Spinner>(R.id.spinner)
+        val desBrev = findViewById<EditText>(R.id.editarDescripcionBreve)
+        val des = findViewById<EditText>(R.id.editarDescripcion)
+        val ataPr = findViewById<EditText>(R.id.editarAtaquePrin)
+        val ataSe = findViewById<EditText>(R.id.editarAtaqueSec)
+        val dnt = findViewById<EditText>(R.id.editarDientes)
+        val dif = findViewById<RatingBar>(R.id.editarDificultadEnemigo)
+
+        findViewById<ImageButton>(R.id.atrasButton5).setOnClickListener { finish() }
+
+        val nombresUbicaciones = Ubicacion.values().map { it.nombre }
+        ubi.adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, nombresUbicaciones)
+
+        if (idEnemigo >= 0 && idEnemigo < repo.longitud()) {
+            val enemigo = repo.buscar(idEnemigo)
+            nom.setText(enemigo.nombre)
+            ubi.setSelection(enemigo.ubicacion.ordinal)
+            desBrev.setText(enemigo.descripcionBreve)
+            des.setText(enemigo.descripcion)
+            ataPr.setText(enemigo.ataquePrincipal)
+            ataSe.setText(enemigo.ataqueSecundario)
+            dnt.setText(enemigo.numeroDientes.toString())
+            dif.rating = enemigo.dificultadEnemigo
+        } else {
+            findViewById<TextView>(R.id.textTituloEditarEnemigo).text = "Nuevo enemigo"
+            val zona = intent.getStringExtra(UbicacionActivity.UBICACION)
+            if (zona != null) {
+                ubi.setSelection(Ubicacion.valueOf(zona).ordinal)
+            }
         }
 
+        findViewById<Button>(R.id.bGuardar).setOnClickListener {
+            if (nom.text.isBlank()) {
+                nom.error = "Escribe un nombre"
+                return@setOnClickListener
+            }
 
-        if(idEnemigo!=null) {
-            val enemigo = RepositorioSingleton.instance.listaEnemigos.buscar(idEnemigo)
+            val ubicacion = Ubicacion.values()[ubi.selectedItemPosition]
+            val dientes = dnt.text.toString().toIntOrNull() ?: 0
 
-            val nom = findViewById<EditText>(R.id.editarNombre)
-                nom.setText(enemigo.nombre)
-            val ubi = findViewById<Spinner>(R.id.spinner)
-                ubi.setSelection(enemigo.ubicacion.ordinal)
-            val desBrev = findViewById<EditText>(R.id.editarDescripcionBreve)
-                desBrev.setText(enemigo.descripcionBreve)
-            val des = findViewById<EditText>(R.id.editarDescripcion)
-                des.setText(enemigo.descripcion)
-            val ataPr = findViewById<EditText>(R.id.editarAtaquePrin)
-                ataPr.setText(enemigo.ataquePrincipal)
-            val ataSe = findViewById<EditText>(R.id.editarAtaqueSec)
-                ataSe.setText(enemigo.ataqueSecundario)
-            val dnt = findViewById<EditText>(R.id.editarDientes)
-                dnt.setText(enemigo.numeroDientes.toString())
-            val difEne = findViewById<RatingBar>(R.id.editarDificultadEnemigo)
-                difEne.setRating(enemigo.dificultadEnemigo.toFloat())
-
-            /*val adapter =
-                ArrayAdapter(this, android.R.layout.simple_spinner_item, Ubicacion.values())
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-            ubi.adapter = adapter*/
-
-            val bGuardar = findViewById<Button>(R.id.bGuardar)
-            bGuardar.setOnClickListener{
+            if (idEnemigo >= 0 && idEnemigo < repo.longitud()) {
+                val enemigo = repo.buscar(idEnemigo)
                 enemigo.nombre = nom.text.toString()
-                enemigo.ubicacion = ubi.selectedItem as Ubicacion
+                enemigo.ubicacion = ubicacion
                 enemigo.descripcionBreve = desBrev.text.toString()
                 enemigo.descripcion = des.text.toString()
                 enemigo.ataquePrincipal = ataPr.text.toString()
                 enemigo.ataqueSecundario = ataSe.text.toString()
-                enemigo.numeroDientes = dnt.text.toString().toInt()
-                enemigo.dificultadEnemigo = difEne.rating.toString().toFloat()
-
-                RepositorioSingleton.instance.listaEnemigos.actualizar(idEnemigo, enemigo)
-                AdaptadorLista.getInstance().notifyItemChanged(idEnemigo)
-                finish()
+                enemigo.numeroDientes = dientes
+                enemigo.dificultadEnemigo = dif.rating
+            } else {
+                repo.nuevoEnemigo(
+                    DatosEnemigo(
+                        nombre = nom.text.toString(),
+                        ubicacion = ubicacion,
+                        descripcionBreve = desBrev.text.toString(),
+                        descripcion = des.text.toString(),
+                        ataquePrincipal = ataPr.text.toString(),
+                        ataqueSecundario = ataSe.text.toString(),
+                        numeroDientes = dientes,
+                        dificultadEnemigo = dif.rating
+                    )
+                )
             }
-        } else {
-
-
-
+            finish()
         }
-
     }
 }

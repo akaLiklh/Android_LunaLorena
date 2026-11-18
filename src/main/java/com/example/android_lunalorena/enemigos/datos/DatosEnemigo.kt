@@ -8,5 +8,7 @@ public data class DatosEnemigo(
     var ataquePrincipal: String,
     var ataqueSecundario: String,
     var numeroDientes: Int = 0,
-    var dificultadEnemigo : Float = 0f
+    var dificultadEnemigo : Float = 0f,
+    var imagen: Int = 0
+
 )

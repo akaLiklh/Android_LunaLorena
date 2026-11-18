@@ -2,84 +2,96 @@ package com.example.android_lunalorena.enemigos
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-import android.view.ContextMenu
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.RatingBar
 import android.widget.TextView
-import androidx.appcompat.widget.Toolbar
-import com.example.android_lunalorena.R
 import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.content.res.AppCompatResources
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import androidx.appcompat.widget.Toolbar
+import com.example.android_lunalorena.R
 import com.example.android_lunalorena.enemigos.modelo.RepositorioSingleton
 
 class EnemigoActivity : AppCompatActivity() {
-    companion object{
+
+    companion object {
         const val NUMERO_PERS = "numero enemigo"
     }
 
-    var idEnemigo: Int=-1
+    private var idEnemigo = -1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val idEnemigo = intent.extras?.getInt(NUMERO_PERS) ?: 0
         enableEdgeToEdge()
         setContentView(R.layout.activity_enemigo)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
-        val barra = findViewById<Toolbar>(R.id.toolbarPersonaje)
+
+        idEnemigo = intent.getIntExtra(NUMERO_PERS, -1)
+
+        val barra = findViewById<Toolbar>(R.id.toolbarEnemigo)
         setSupportActionBar(barra)
-    }
-   override fun onResume() {
-       val lista = RepositorioSingleton.instance.listaEnemigos
-       val enemigo = lista.buscar(idEnemigo)
-       findViewById<TextView>(R.id.textNombre).text = enemigo.nombre
-       val icono = findViewById<ImageView>(R.id.iconoGrande)
-       val draw = AppCompatResources.getDrawable(this, enemigo.ubicacion.imagen)
-       icono.setImageDrawable(draw)
-       val textoDescripcion = findViewById<TextView>(R.id.textDescripcion)
-       textoDescripcion.text = enemigo.descripcion
-       val textoAtaquePrin = findViewById<TextView>(R.id.textAtaquePrin)
-       textoAtaquePrin.text = enemigo.ataquePrincipal
-       val textoAtaqueSec = findViewById<TextView>(R.id.textAtaqueSec)
-       textoAtaqueSec.text = enemigo.ataqueSecundario
-       val numDientes = findViewById<TextView>(R.id.textDientes)
-       numDientes.text = enemigo.numeroDientes.toString()
-       val ratingBar = findViewById<RatingBar>(R.id.dificultadEnemigo)
-       ratingBar.rating = enemigo.dificultadEnemigo
-       super.onResume()
+
     }
 
+    override fun onResume() {
+        super.onResume()
 
+        val repo = RepositorioSingleton.instance.listaEnemigos
+        if (idEnemigo !in 0 until repo.longitud()) {
+            finish()
+            return
+        }
+
+        val enemigo = repo.buscar(idEnemigo)
+        val foto = if (enemigo.imagen != 0) enemigo.imagen else enemigo.ubicacion.imagen
+
+        findViewById<TextView>(R.id.textNombre).text = enemigo.nombre
+        findViewById<ImageView>(R.id.iconoGrande).setImageDrawable(
+            AppCompatResources.getDrawable(this, foto)
+        )
+        findViewById<TextView>(R.id.textDescripcion).text = enemigo.descripcion
+        findViewById<TextView>(R.id.textAtaquePrin).text = enemigo.ataquePrincipal
+        findViewById<TextView>(R.id.textAtaqueSec).text = enemigo.ataqueSecundario
+        findViewById<TextView>(R.id.textDientes).text = enemigo.numeroDientes.toString()
+        findViewById<RatingBar>(R.id.dificultadEnemigo).rating = enemigo.dificultadEnemigo
+    }
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu_vista_enemigo,menu)
+        menuInflater.inflate(R.menu.menu_editar_eliminar_enemigo,menu)
         return super.onCreateOptionsMenu(menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        Log.d("MENU", "PULSADO EL ITEM")
 
         val idBoton = item.itemId
-        return when(idBoton){
-            R.id.boton_menu_editar ->{
+        return when (idBoton) {
+            R.id.boton_menu_editar -> {
                 val intent = Intent(this, EditarEnemigoActivity::class.java)
-                intent.putExtra(NUMERO_PERS,idEnemigo)
                 startActivity(intent)
                 true
             }
-            R.id.boton_menu_eliminar ->{
-                RepositorioSingleton.instance.listaEnemigos.borrar(idEnemigo)
+
+            R.id.boton_menu_atras -> {
+                val intent = Intent(this, ListaActivity::class.java)
+                startActivity(intent)
                 true
             }
+
+            R.id.boton_menu_eliminar -> {
+                AlertDialog.Builder(this)
+                    .setTitle("Eliminar enemigo")
+                    .setMessage("¿Seguro que quieres eliminar este enemigo?")
+                    .setNegativeButton("Cancelar", null)
+                    .setPositiveButton("Eliminar") { _, _ ->
+                        RepositorioSingleton.instance.listaEnemigos.borrar(idEnemigo)
+                        finish()
+                    }
+                    .show()
+                true
+            }
+
             else -> super.onOptionsItemSelected(item)
         }
     }
