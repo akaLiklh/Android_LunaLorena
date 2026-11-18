@@ -13,7 +13,7 @@
     tools:context=".enemigos.ListaUbicacionesActivity">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
+        android:id="@+id/toolbarEnemigo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
@@ -38,50 +38,21 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/textTituloLista"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_height="37dp"
                 android:layout_marginStart="10dp"
                 android:layout_weight="1"
                 android:insetTop="0dp"
                 android:insetBottom="0dp"
                 android:maxLines="1"
-                android:minHeight="30dp"
+                android:minHeight="48dp"
                 android:text="Lista de enemigos"
                 android:textAllCaps="false"
                 android:textColor="@color/black"
-                android:textSize="14dp"
+                android:textSize="18dp"
                 app:backgroundTint="@color/white"
                 app:cornerRadius="12dp" />
 
-            <ImageButton
-                android:id="@+id/iconoMas"
-                android:layout_width="30dp"
-                android:layout_height="48dp"
-                android:layout_margin="4dp"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:contentDescription="añadir"
-                android:scaleType="fitCenter"
-                android:src="@drawable/iconomas" />
-
-            <ImageButton
-                android:id="@+id/iconoEditar"
-                android:layout_width="30dp"
-                android:layout_height="48dp"
-                android:layout_margin="4dp"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:contentDescription="editar"
-                android:scaleType="fitCenter"
-                android:src="@drawable/iconoeditar" />
-
-            <ImageButton
-                android:id="@+id/iconoEliminar"
-                android:layout_width="30dp"
-                android:layout_height="48dp"
-                android:layout_margin="4dp"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:contentDescription="eliminar"
-                android:scaleType="fitCenter"
-                android:src="@drawable/iconoeliminar" />
         </LinearLayout>
     </androidx.appcompat.widget.Toolbar>
 

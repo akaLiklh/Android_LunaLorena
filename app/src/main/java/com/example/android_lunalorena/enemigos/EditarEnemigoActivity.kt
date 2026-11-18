@@ -22,7 +22,7 @@ class EditarEnemigoActivity : AppCompatActivity() {
         setContentView(R.layout.activity_editar_enemigo)
 
         val repo = RepositorioSingleton.instance.listaEnemigos
-        val id = intent.getIntExtra(EnemigoActivity.NUMERO_PERS, -1)
+        val idEnemigo = intent.getIntExtra(EnemigoActivity.NUMERO_PERS, -1)
 
         val nom = findViewById<EditText>(R.id.editarNombre)
         val ubi = findViewById<Spinner>(R.id.spinner)
@@ -35,11 +35,8 @@ class EditarEnemigoActivity : AppCompatActivity() {
 
         findViewById<ImageButton>(R.id.atrasButton5).setOnClickListener { finish() }
 
-        val nombresUbicaciones = Ubicacion.values().map { it.nombre }
-        ubi.adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, nombresUbicaciones)
-
-        if (id >= 0 && id < repo.longitud()) {
-            val enemigo = repo.buscar(id)
+        if (idEnemigo >= 0 && idEnemigo < repo.longitud()) {
+            val enemigo = repo.buscar(idEnemigo)
             nom.setText(enemigo.nombre)
             ubi.setSelection(enemigo.ubicacion.ordinal)
             desBrev.setText(enemigo.descripcionBreve)
@@ -65,8 +62,8 @@ class EditarEnemigoActivity : AppCompatActivity() {
             val ubicacion = Ubicacion.values()[ubi.selectedItemPosition]
             val dientes = dnt.text.toString().toIntOrNull() ?: 0
 
-            if (id >= 0 && id < repo.longitud()) {
-                val enemigo = repo.buscar(id)
+            if (idEnemigo >= 0 && idEnemigo < repo.longitud()) {
+                val enemigo = repo.buscar(idEnemigo)
                 enemigo.nombre = nom.text.toString()
                 enemigo.ubicacion = ubicacion
                 enemigo.descripcionBreve = desBrev.text.toString()

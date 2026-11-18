@@ -21,7 +21,7 @@
         android:paddingBottom="62dp">
 
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
+            android:id="@+id/toolbarEnemigo"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
@@ -81,6 +81,17 @@
                 android:layout_height="2dp"
                 android:layout_marginBottom="16dp"
                 android:background="?attr/colorPrimary" />
+
+            <TextView
+                android:id="@+id/txtTipo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Elige el tipo de dado:"
+                android:textAlignment="center"
+                android:textColor="?attr/colorOnSurface"
+                android:textSize="20sp" />
+
 
             <RadioGroup
                 android:id="@+id/RadioGroupTipoDado"

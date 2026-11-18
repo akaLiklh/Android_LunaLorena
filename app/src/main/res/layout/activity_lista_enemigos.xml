@@ -13,6 +13,7 @@
     tools:context=".enemigos.ListaActivity">
 
     <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarLista"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
@@ -23,44 +24,8 @@
         app:contentInsetEnd="0dp"
         app:contentInsetStart="0dp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
-
-            <ImageButton
-                android:id="@+id/atrasButton6"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:contentDescription="Atrás"
-                android:scaleType="fitCenter"
-                android:src="@drawable/atras"
-                app:tint="?attr/colorOnPrimary" />
-
-            <TextView
-                android:id="@+id/textTituloTarjeta"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_weight="1"
-                android:text="Lista de enemigos"
-                android:textColor="?attr/colorOnPrimary"
-                android:textSize="18sp" />
-
-            <ImageButton
-                android:id="@+id/iconoMas"
-                android:layout_width="35dp"
-                android:layout_height="40dp"
-                android:layout_marginEnd="8dp"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:contentDescription="Añadir enemigo"
-                android:scaleType="fitCenter"
-                android:src="@drawable/iconomas" />
-
-        </LinearLayout>
     </androidx.appcompat.widget.Toolbar>
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/listaEnemigos"

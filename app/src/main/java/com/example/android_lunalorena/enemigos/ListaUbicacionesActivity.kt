@@ -2,12 +2,16 @@ package com.example.android_lunalorena.enemigos
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import com.example.android_lunalorena.InicioActivity
 import com.example.android_lunalorena.R
 import com.example.android_lunalorena.enemigos.datos.Ubicacion
+import kotlin.jvm.java
 
 class ListaUbicacionesActivity : AppCompatActivity() {
 
@@ -38,4 +42,7 @@ class ListaUbicacionesActivity : AppCompatActivity() {
         findViewById<ImageButton>(idImagen).setOnClickListener { abrir() }
         findViewById<TextView>(idTexto).setOnClickListener { abrir() }
     }
+
+
+
 }

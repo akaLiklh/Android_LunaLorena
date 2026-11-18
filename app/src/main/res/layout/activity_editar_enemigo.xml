@@ -13,7 +13,7 @@
     tools:context=".EditarEnemigoActivity">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
+        android:id="@+id/toolbarEnemigo"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@color/red"
@@ -193,6 +193,9 @@
 
             <RatingBar
                 android:id="@+id/editarDificultadEnemigo"
+                android:progressTint="@color/red"
+                android:secondaryProgressTint="@color/red"
+                android:progressBackgroundTint="@color/grey_star"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
