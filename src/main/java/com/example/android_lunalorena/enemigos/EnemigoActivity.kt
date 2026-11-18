@@ -69,6 +69,7 @@ class EnemigoActivity : AppCompatActivity() {
         return when (idBoton) {
             R.id.boton_menu_editar -> {
                 val intent = Intent(this, EditarEnemigoActivity::class.java)
+                intent.putExtra(NUMERO_PERS,idEnemigo)
                 startActivity(intent)
                 true
             }
