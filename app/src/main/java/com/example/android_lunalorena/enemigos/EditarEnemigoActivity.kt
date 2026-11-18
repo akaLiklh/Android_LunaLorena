@@ -23,6 +23,7 @@ class EditarEnemigoActivity : AppCompatActivity() {
 
         val repo = RepositorioSingleton.instance.listaEnemigos
         val idEnemigo = intent.getIntExtra(EnemigoActivity.NUMERO_PERS, -1)
+        val esEdicion = idEnemigo >= 0 && idEnemigo < repo.longitud()
 
         val nom = findViewById<EditText>(R.id.editarNombre)
         val ubi = findViewById<Spinner>(R.id.spinner)
@@ -33,9 +34,18 @@ class EditarEnemigoActivity : AppCompatActivity() {
         val dnt = findViewById<EditText>(R.id.editarDientes)
         val dif = findViewById<RatingBar>(R.id.editarDificultadEnemigo)
 
+        val ubicaciones = Ubicacion.values()
+        val adaptadorUbi = ArrayAdapter(
+            this,
+            android.R.layout.simple_spinner_item,
+            ubicaciones.map { it.nombre }
+        )
+        adaptadorUbi.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        ubi.adapter = adaptadorUbi
+
         findViewById<ImageButton>(R.id.atrasButton5).setOnClickListener { finish() }
 
-        if (idEnemigo >= 0 && idEnemigo < repo.longitud()) {
+        if (esEdicion) {
             val enemigo = repo.buscar(idEnemigo)
             nom.setText(enemigo.nombre)
             ubi.setSelection(enemigo.ubicacion.ordinal)
@@ -48,8 +58,9 @@ class EditarEnemigoActivity : AppCompatActivity() {
         } else {
             findViewById<TextView>(R.id.textTituloEditarEnemigo).text = "Nuevo enemigo"
             val zona = intent.getStringExtra(UbicacionActivity.UBICACION)
-            if (zona != null) {
-                ubi.setSelection(Ubicacion.valueOf(zona).ordinal)
+            val ubicacionInicial = ubicaciones.firstOrNull { it.name == zona }
+            if (ubicacionInicial != null) {
+                ubi.setSelection(ubicacionInicial.ordinal)
             }
         }
 
@@ -59,10 +70,11 @@ class EditarEnemigoActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            val ubicacion = Ubicacion.values()[ubi.selectedItemPosition]
+            val posicion = ubi.selectedItemPosition
+            val ubicacion = if (posicion in ubicaciones.indices) ubicaciones[posicion] else ubicaciones[0]
             val dientes = dnt.text.toString().toIntOrNull() ?: 0
 
-            if (idEnemigo >= 0 && idEnemigo < repo.longitud()) {
+            if (esEdicion && idEnemigo < repo.longitud()) {
                 val enemigo = repo.buscar(idEnemigo)
                 enemigo.nombre = nom.text.toString()
                 enemigo.ubicacion = ubicacion
