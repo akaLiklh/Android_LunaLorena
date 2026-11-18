@@ -52,8 +52,7 @@ class ListaActivity : AppCompatActivity() {
                 true
             }
             R.id.boton_menu_atras ->{
-                val intent = Intent(this, ListaUbicacionesActivity::class.java)
-                startActivity(intent)
+                finish()
                 true
             }
             else -> super.onOptionsItemSelected(item)

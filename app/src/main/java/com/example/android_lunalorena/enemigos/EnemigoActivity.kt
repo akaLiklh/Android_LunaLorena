@@ -75,8 +75,7 @@ class EnemigoActivity : AppCompatActivity() {
             }
 
             R.id.boton_menu_atras -> {
-                val intent = Intent(this, ListaActivity::class.java)
-                startActivity(intent)
+                finish()
                 true
             }
 
