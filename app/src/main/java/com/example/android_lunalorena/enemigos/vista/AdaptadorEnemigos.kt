@@ -18,23 +18,20 @@ class AdaptadorLista(val ubicacion: Ubicacion? = null) :
     RecyclerView.Adapter<AdaptadorLista.CreadorItems>() {
 
     companion object {
-        const val NUMERO_PERS = "numero enemigo"
-
-        private var instance: AdaptadorLista? = null
-
-        fun getInstance(): AdaptadorLista {
-            if (instance == null) instance = AdaptadorLista()
-            return instance!!
-        }
+        val instance = AdaptadorLista()
     }
 
     private val lista = RepositorioSingleton.instance.listaEnemigos
     private var indices = calcularIndices()
 
-    private fun calcularIndices(): List<Int> {
-        return (0 until lista.longitud()).filter { id ->
-            ubicacion == null || lista.buscar(id).ubicacion == ubicacion
+    private fun calcularIndices(): MutableList<Int> {
+        val resultado = mutableListOf<Int>()
+        for (i in 0 until lista.longitud()) {
+            if (ubicacion == null || lista.buscar(i).ubicacion == ubicacion) {
+                resultado.add(i)
+            }
         }
+        return resultado
     }
 
     fun refrescar() {
@@ -49,27 +46,25 @@ class AdaptadorLista(val ubicacion: Ubicacion? = null) :
     }
 
     override fun onBindViewHolder(holder: CreadorItems, position: Int) {
-        val id = indices.getOrNull(position) ?: return
-        if (id !in 0 until lista.longitud()) return
-
+        val vista = holder.itemView
+        val id = indices[position]
         val enemigo = lista.buscar(id)
-        val foto = if (enemigo.imagen != 0) enemigo.imagen else enemigo.ubicacion.imagen
 
-        holder.itemView.findViewById<TextView>(R.id.tarjeta_numero).text = (position + 1).toString()
-        holder.itemView.findViewById<TextView>(R.id.tarjeta_nombre).text = enemigo.nombre
-        holder.itemView.findViewById<TextView>(R.id.tarjeta_breve).text = enemigo.descripcionBreve
-        holder.itemView.findViewById<ImageView>(R.id.icono_pequenno).setImageDrawable(
-            AppCompatResources.getDrawable(holder.itemView.context, foto)
-        )
+        var foto = enemigo.imagen
+        if (foto == 0) {
+            foto = enemigo.ubicacion.imagen
+        }
 
-        holder.itemView.findViewById<LinearLayout>(R.id.base_tarjeta).setOnClickListener {
-            if (id in 0 until lista.longitud()) {
-                val intent = Intent(holder.itemView.context, EnemigoActivity::class.java)
-                intent.putExtra(EnemigoActivity.NUMERO_PERS, id)
-                holder.itemView.context.startActivity(intent)
-            } else {
-                refrescar()
-            }
+        vista.findViewById<TextView>(R.id.tarjeta_numero).text = (position + 1).toString()
+        vista.findViewById<TextView>(R.id.tarjeta_nombre).text = enemigo.nombre
+        vista.findViewById<TextView>(R.id.tarjeta_breve).text = enemigo.descripcionBreve
+        vista.findViewById<ImageView>(R.id.icono_pequenno)
+            .setImageDrawable(AppCompatResources.getDrawable(vista.context, foto))
+
+        vista.findViewById<LinearLayout>(R.id.base_tarjeta).setOnClickListener {
+            val intent = Intent(vista.context, EnemigoActivity::class.java)
+            intent.putExtra(EnemigoActivity.NUMERO_PERS, id)
+            vista.context.startActivity(intent)
         }
     }
 

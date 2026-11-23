@@ -1,7 +1,6 @@
 package com.example.android_lunalorena.calculadora
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.ImageButton
@@ -105,7 +104,6 @@ class CalculadoraActivity  : AppCompatActivity(), View.OnClickListener {
                 calc.meterComa()
             }
         }
-        Log.d("PANTALLA", calc.num2)
         resultado.text = if (calc.num2.isEmpty()) calc.num1 else calc.num2
     }
 }

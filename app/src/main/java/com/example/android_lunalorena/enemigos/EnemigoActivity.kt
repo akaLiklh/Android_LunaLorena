@@ -40,7 +40,7 @@ class EnemigoActivity : AppCompatActivity() {
         super.onResume()
 
         val repo = RepositorioSingleton.instance.listaEnemigos
-        if (idEnemigo !in 0 until repo.longitud()) {
+        if (idEnemigo < 0 || idEnemigo >= repo.longitud()) {
             finish()
             return
         }

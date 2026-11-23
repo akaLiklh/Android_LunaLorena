@@ -35,11 +35,12 @@ class EditarEnemigoActivity : AppCompatActivity() {
         val dif = findViewById<RatingBar>(R.id.editarDificultadEnemigo)
 
         val ubicaciones = Ubicacion.values()
-        val adaptadorUbi = ArrayAdapter(
-            this,
-            android.R.layout.simple_spinner_item,
-            ubicaciones.map { it.nombre }
-        )
+        val nombres = mutableListOf<String>()
+
+        for (lugar in ubicaciones) {
+            nombres.add(lugar.nombre)
+        }
+        val adaptadorUbi = ArrayAdapter(this, android.R.layout.simple_spinner_item, nombres)
         adaptadorUbi.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         ubi.adapter = adaptadorUbi
 
@@ -58,47 +59,44 @@ class EditarEnemigoActivity : AppCompatActivity() {
         } else {
             findViewById<TextView>(R.id.textTituloEditarEnemigo).text = "Nuevo enemigo"
             val zona = intent.getStringExtra(UbicacionActivity.UBICACION)
-            val ubicacionInicial = ubicaciones.firstOrNull { it.name == zona }
-            if (ubicacionInicial != null) {
-                ubi.setSelection(ubicacionInicial.ordinal)
+            if (zona != null) {
+                ubi.setSelection(Ubicacion.valueOf(zona).ordinal)
             }
         }
 
         findViewById<Button>(R.id.bGuardar).setOnClickListener {
-            if (nom.text.isBlank()) {
+            if (nom.text.isEmpty()) {
                 nom.error = "Escribe un nombre"
-                return@setOnClickListener
-            }
-
-            val posicion = ubi.selectedItemPosition
-            val ubicacion = if (posicion in ubicaciones.indices) ubicaciones[posicion] else ubicaciones[0]
-            val dientes = dnt.text.toString().toIntOrNull() ?: 0
-
-            if (esEdicion && idEnemigo < repo.longitud()) {
-                val enemigo = repo.buscar(idEnemigo)
-                enemigo.nombre = nom.text.toString()
-                enemigo.ubicacion = ubicacion
-                enemigo.descripcionBreve = desBrev.text.toString()
-                enemigo.descripcion = des.text.toString()
-                enemigo.ataquePrincipal = ataPr.text.toString()
-                enemigo.ataqueSecundario = ataSe.text.toString()
-                enemigo.numeroDientes = dientes
-                enemigo.dificultadEnemigo = dif.rating
             } else {
-                repo.nuevoEnemigo(
-                    DatosEnemigo(
-                        nombre = nom.text.toString(),
-                        ubicacion = ubicacion,
-                        descripcionBreve = desBrev.text.toString(),
-                        descripcion = des.text.toString(),
-                        ataquePrincipal = ataPr.text.toString(),
-                        ataqueSecundario = ataSe.text.toString(),
-                        numeroDientes = dientes,
-                        dificultadEnemigo = dif.rating
+                val ubicacion = ubicaciones[ubi.selectedItemPosition]
+                val dientes = dnt.text.toString().toIntOrNull() ?: 0
+
+                if (esEdicion) {
+                    val enemigo = repo.buscar(idEnemigo)
+                    enemigo.nombre = nom.text.toString()
+                    enemigo.ubicacion = ubicacion
+                    enemigo.descripcionBreve = desBrev.text.toString()
+                    enemigo.descripcion = des.text.toString()
+                    enemigo.ataquePrincipal = ataPr.text.toString()
+                    enemigo.ataqueSecundario = ataSe.text.toString()
+                    enemigo.numeroDientes = dientes
+                    enemigo.dificultadEnemigo = dif.rating
+                } else {
+                    repo.nuevoEnemigo(
+                        DatosEnemigo(
+                            nombre = nom.text.toString(),
+                            ubicacion = ubicacion,
+                            descripcionBreve = desBrev.text.toString(),
+                            descripcion = des.text.toString(),
+                            ataquePrincipal = ataPr.text.toString(),
+                            ataqueSecundario = ataSe.text.toString(),
+                            numeroDientes = dientes,
+                            dificultadEnemigo = dif.rating
+                        )
                     )
-                )
+                }
+                finish()
             }
-            finish()
         }
     }
 }

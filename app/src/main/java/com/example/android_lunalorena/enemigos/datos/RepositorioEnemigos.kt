@@ -6,11 +6,11 @@ interface RepositorioEnemigos {
     fun poblar(){
         nuevoEnemigo(
             DatosEnemigo(
-                "Ruina insidiosa",
+                "Ruina Insidiosa",
                 Ubicacion.VALLELAGRIMAS,
                 "Masa de ruina con cabeza de muñeca y un motor que expulsa humo negro.",
                 "Una combinación antinatural y hostil de piezas mecánicas destrozadas vomita contaminación y arrasa con todo a su paso. Como una enfermedad industrial sin sentido, rezuma grasa y lodo mecánico y empuña un arma peligrosa. Su sonido repugnante y su hedor nauseabundo completan su aura amenazante. Una cabeza espantosa acentúa aún más su aspecto repulsivo.",
-                "Zarpazo : Insidious Ruin intentará atacar a Alice si se acerca demasiado.",
+                "Zarpazo : Ruina Insidiosa intentará atacar a Alice si se acerca demasiado.",
                 "Impulso: habilidad mediante la cual sus motores la impulsan hacia adelante, para acercarse rápidamente a Alice y atacarla.",
                 3,
                 1.0f,
@@ -62,7 +62,7 @@ interface RepositorioEnemigos {
 
         nuevoEnemigo(
             DatosEnemigo(
-                "Cangrejo Cañon",
+                "Cangrejo Cañón",
                 Ubicacion.DOMINIOSOMBRERERO,
                 "Cangrejo con un cañón por brazo y exoesqueleto inmune.",
                 "Un crustáceo con un cañón en lugar de su brazo derecho. Su exoesqueleto es inmune a los ataques.",
@@ -76,11 +76,11 @@ interface RepositorioEnemigos {
 
         nuevoEnemigo(
             DatosEnemigo(
-                "Protector de tarjeta blindado",
+                "Protector de Cartas Blindado",
                 Ubicacion.QUEENSLAND,
-                "Guardia de cartas casi invulnerable con un hacha de asta.",
-                "Las cuencas oculares del Guardia de Cartas Acorazado brillan con un rojo intenso. Está cubierto con una cota de malla y porta un hacha de asta con la hoja en forma de corazón. La armadura le otorga una invulnerabilidad casi total a todo tipo de ataque, y el hacha de asta inflige un daño considerable.",
-                "Golpe : El Guardia de Cartas Acorazado blandirá su hacha de guerra y la estrellará contra Alice. Si este ataque falla, quedará aturdido durante unos segundos y vulnerable.",
+                "Protector de Cartas casi invulnerable con un hacha de asta.",
+                "Las cuencas oculares del Protector de Cartas brillan con un rojo intenso. Está cubierto con una cota de malla y porta un hacha de asta con la hoja en forma de corazón. La armadura le otorga una invulnerabilidad casi total a todo tipo de ataque, y el hacha de asta inflige un daño considerable.",
+                "Golpe : El Protector de Cartas blandirá su hacha de guerra y la estrellará contra Alice. Si este ataque falla, quedará aturdido durante unos segundos y vulnerable.",
                 "No tiene ataque secundario.",
                 30,
                 2.0f,
@@ -94,7 +94,7 @@ interface RepositorioEnemigos {
                 Ubicacion.QUEENSLAND,
                 "Caballero de ajedrez rojo que ataca con su espada.",
                 "Los Caballeros Rojos son completamente rojos desde la melena hasta el tronco y visten armadura de caballero en la parte superior del cuerpo, y solo poseen una espada para atacar.",
-                "Zarpazo : El caballero blandirá su espada violentamente contra Alicia.",
+                "Zarpazo : El caballero blandirá su espada violentamente contra Alice.",
                 "No tiene ataque secundario.",
                 20,
                 2.0f,
@@ -121,9 +121,9 @@ interface RepositorioEnemigos {
                 "Niña Muñeca",
                 Ubicacion.CASAMUNECAS,
                 "Muñeca gigante y sin ojos armada con tijeras.",
-                "La Muñeca es el doble de grande que Alicia y no tiene ojos. Está armada con dos mitades de unas tijeras y suele blandirlas juguetonamente hacia Alicia, quien grita y se tambalea. También puede encontrarse con una variante con garfios en lugar de manos. Camina como un bebé y ríe histéricamente cuando \"ve\" a Alicia.",
-                "Corte giratorio : La Chica Muñeca gira rápidamente, dejando estelas en el aire. El contacto con sus cuchillas en ese momento causará mucho daño.",
-                "Golpe descendente : La Chica Muñeca baja su arma a una velocidad extrema.",
+                "La Muñeca es el doble de grande que Alice y no tiene ojos. Está armada con dos mitades de unas tijeras y suele blandirlas juguetonamente hacia Alice, quien grita y se tambalea. También puede encontrarse con una variante con garfios en lugar de manos. Camina como un bebé y ríe histéricamente cuando \"ve\" a Alice.",
+                "Corte giratorio : La Niña Muñeca gira rápidamente, dejando estelas en el aire. El contacto con sus cuchillas en ese momento causará mucho daño.",
+                "Golpe descendente : La Niña Muñeca baja su arma a una velocidad extrema.",
                 35,
                 4.0f,
                 imagen = R.drawable.muneca

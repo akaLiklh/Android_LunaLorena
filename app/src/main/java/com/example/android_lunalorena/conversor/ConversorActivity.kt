@@ -33,7 +33,7 @@ class ConversorActivity : AppCompatActivity() {
         val btnBorrar = findViewById<Button>(R.id.btnBorrar)
 
         btnConvertir.setOnClickListener {
-            val euros = etCantidad.text.toString().replace(',', '.').toDoubleOrNull()
+            val euros = etCantidad.text.toString().toDoubleOrNull()
 
             if (euros == null) {
                 tvResultado.text = "Porfaplis, introduce una cantidad"

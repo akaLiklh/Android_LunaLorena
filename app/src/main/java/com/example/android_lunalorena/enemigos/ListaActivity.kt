@@ -1,6 +1,5 @@
 package com.example.android_lunalorena.enemigos
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
@@ -15,9 +14,8 @@ import com.example.android_lunalorena.enemigos.vista.AdaptadorLista
 
 class ListaActivity : AppCompatActivity() {
 
-    private val adaptador = AdaptadorLista.getInstance()
+    private val adaptador = AdaptadorLista.instance
 
-    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
